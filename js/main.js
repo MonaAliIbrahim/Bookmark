@@ -189,13 +189,13 @@ var getUpdatedWebsite = function(index) {
 nameInput.addEventListener('keyup', function() {
   let regex = /[^`~!@#$%^&*?+={}()<>;:\'\"]{3,50}/,
       alert = document.getElementById('nameAlert');
-  checkValidation(nameInput, rejex, alert);
+  checkValidation(nameInput, regex, alert);
 });
 
 urlInput.addEventListener('keyup', function() {
   let regex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/,
       alert = document.getElementById('urlAlert');
-  checkValidation(urlInput, rejex, alert)
+  checkValidation(urlInput, regex, alert)
 });
 
 function checkValidation(input, rejex, alert) {
