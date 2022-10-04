@@ -6,6 +6,8 @@ document.getElementById('year').innerHTML = fullDate.getFullYear();
 var tableBody = document.getElementById('tableBody'),
     nameInput = document.getElementById('name'),
     urlInput = document.getElementById('url'),
+    nameAlert = document.getElementById('nameAlert'),
+    urlAlert =  document.getElementById('urlAlert'),
     addBtn = document.getElementById('addBtn'),
     resetBtn = document.getElementById('resetBtn'),
     searchInput = document.getElementById('searchInput'),
@@ -158,6 +160,9 @@ function clearForm() {
     inputs[i].classList.remove('is-valid');
     inputs[i].classList.remove('is-invalid');
   }
+  // Update Alert Style
+  nameAlert.classList.add('d-none');
+  urlAlert.classList.add('d-none');
 }
 
 // Reset Button Action
@@ -187,15 +192,13 @@ var getUpdatedWebsite = function(index) {
 
 // Validation
 nameInput.addEventListener('keyup', function() {
-  var regex = /[^`~!@#$%^&*?+={}()<>;:\'\"]{3,50}/,
-      alert = document.getElementById('nameAlert');
-  checkValidation(nameInput, regex, alert);
+  let regex = /[^`~!@#$%^&*?+={}()<>;:\'\"]{3,50}/;
+  checkValidation(nameInput, regex, nameAlert);
 });
 
 urlInput.addEventListener('keyup', function() {
-  var regex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/,
-      alert = document.getElementById('urlAlert');
-  checkValidation(urlInput, regex, alert);
+  let regex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
+  checkValidation(urlInput, regex, urlAlert);
 });
 
 function checkValidation(input, regex, alert) {
