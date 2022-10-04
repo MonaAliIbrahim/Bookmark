@@ -1,0 +1,129 @@
+main {
+  min-height: calc(100vh - 180px);
+}
+
+header h1 {
+  font-size: 29px;
+  font-weight: 700;
+  color: #aaa;
+  border-bottom: 1px solid var(--bs-border-color-translucent);
+}
+
+/****************** Form ******************/
+.main-card {
+  background-color: #eee;
+}
+
+.main-card h3 {
+  margin-bottom: 36px;
+  line-height: 34px;
+}
+
+form label {
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+form input {
+  margin: 10px auto;
+}
+
+/****************** Table ******************/
+.table tr {
+  vertical-align: middle;
+  background-image: linear-gradient(#EEE,#FFF);
+}
+
+.table tr td {
+  padding: 16px 8px;
+}
+
+.table tr td:first-child {
+  font-weight: bold;
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.table tr .btn-primary:hover {
+  color: var(--bs-primary);
+  background-color: transparent;
+}
+
+.table tr .btn-danger:hover {
+  color: var(--bs-danger);
+  background-color: transparent;
+}
+
+.table .btn a {
+  text-decoration: none;
+}
+
+.table .btn:hover a, 
+.table .btn:active a, 
+.table .btn:focus a {
+  color: #fff !important;
+}
+
+/****************** Footer ******************/
+footer p {
+  font-size: 14px;
+  font-weight: 700;
+  color: #aaa;
+  border-top: 1px solid var(--bs-border-color-translucent);
+}
+
+/****************** Toast ******************/
+.toast-container {
+  margin-left: 50%;
+  bottom: 105%;
+  transition: 0.8s all;
+  transform: translateX(-50%);
+}
+
+.toast {
+  width: auto;
+  padding: 4px 26px;
+}
+
+/*************** Scrollbar ***************/
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-button {
+  width: 100%;
+  height: 100%;
+ }
+
+::-webkit-scrollbar-thumb {
+ border-radius: 5px;
+ background-color: var(--bs-danger);
+}
+
+::-webkit-scrollbar-corner {
+ background-color: #000;
+}
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-button {
+  background-color: #eee;
+  border-radius: 5px;
+}
+
+/*************** Media Query ***************/
+@media screen and (max-width: 992px) {
+  .main-card form {
+    padding: 0 !important;
+  }
+
+  tr td:last-child {
+    text-align: center !important;
+  }
+
+  tr td:last-child .btn:first-of-type {
+    margin-bottom: 8px;
+  }
+}

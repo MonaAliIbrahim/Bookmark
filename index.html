@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <title>Bookmark</title>
+    <link rel="icon" href="images/favicon_io/favicon.ico">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1 class="py-4">Bookmark</h1>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <div class="main-card text-center p-4 m-4">
+          <h3>Bookmark your favorite sites</h3>
+          <form id="websiteForm" class="px-5">
+            <label for="name">Site Name</label>
+            <input type="text" name="name" id="name" class="form-control" placeholder="Bookmark Name">
+            <Alert id="nameAlert" class="alert alert-danger d-none px-4 py-2">
+              Site Name must be at least 3 characters
+            </Alert>
+            <label for="url">Site URL</label>
+            <input type="text" name="url" id="url" class="form-control" placeholder="Website URL">
+            <Alert id="urlAlert" class="alert alert-danger d-none px-4 py-2">
+              Valid Site URL should be like : http://example.com
+            </Alert>
+            <button id="addBtn" class="btn btn-primary mt-3 px-4" disabled>Submit</button>
+          </form>
+        </div>
+        <div class="row mx-4">
+          <input type="text" class="form-control mb-3 d-none" id="searchInput" name="search" placeholder="Search by Website Name...">
+          <div class="table-responsive-md px-0">
+            <table class="table">
+              <tbody id="tableBody"></tbody>
+            </table>
+          </a>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="container">
+        <p class="mb-0 py-4">
+          &copy; <span id="year"></span> Bookmarker Inc
+        </p>
+      </div>
+    </footer>
+    <div class="toast-container position-fixed p-3">
+      <div id="responseTost" class="toast d-block text-white" role="alert" aria-live="assertive" aria-atomic="true">
+        <div id="response" class="toast-body text-center text-capitalize">
+        </div>
+      </div>
+    </div>
+    <script scr="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+
+  </body>
+</html>
