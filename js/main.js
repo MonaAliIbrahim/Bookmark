@@ -5,13 +5,13 @@ document.getElementById('year').innerHTML = fullDate.getFullYear();
 // Declaration
 var tableBody = document.getElementById('tableBody'),
     nameInput = document.getElementById('name'),
-    urlInput = document.getElementById('url'), 
+    urlInput = document.getElementById('url'),
     addBtn = document.getElementById('addBtn'),
     resetBtn = document.getElementById('resetBtn'),
     searchInput = document.getElementById('searchInput'),
     updateBtn = document.getElementById('updateBtn'),
     deleteBtn = document.getElementById('deleteBtn'),
-    inputs = Array.from(document.querySelectorAll('form input')),
+    inputs = Array.from(document.querySelectorAll('form .form-control')),
     flagAction = 'add',
     response = '',
     toastClass = '',
@@ -125,7 +125,7 @@ searchInput.addEventListener('keyup', searchForWebsite);
 
 function searchForWebsite() {
   var searchText = searchInput.value,
-  rows = '';
+      rows = '';
   for(var i = 0; i < websiteList.length; i++) {
     if(websiteList[i].name.toLowerCase().includes(searchText.toLowerCase())) {
       rows += `<tr>
@@ -187,25 +187,29 @@ var getUpdatedWebsite = function(index) {
 
 // Validation
 nameInput.addEventListener('keyup', function() {
-  let regex = /[^`~!@#$%^&*?+={}()<>;:\'\"]{3,50}/,
+  var regex = /[^`~!@#$%^&*?+={}()<>;:\'\"]{3,50}/,
       alert = document.getElementById('nameAlert');
   checkValidation(nameInput, regex, alert);
 });
 
 urlInput.addEventListener('keyup', function() {
-  let regex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/,
+  var regex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/,
       alert = document.getElementById('urlAlert');
-  checkValidation(urlInput, regex, alert)
+  checkValidation(urlInput, regex, alert);
 });
 
-function checkValidation(input, rejex, alert) {
+function checkValidation(input, regex, alert) {
   addBtn.disabled = true;
-  if(input.value.match(rejex)) {
-    input.classList.replace('is-invalid','is-valid');
-    alert.classList.replace('d-block','d-none');
+  if(regex.test(input.value)) {
+    input.classList.remove('is-invalid');
+    input.classList.add('is-valid');
+    alert.classList.remove('d-block');
+    alert.classList.add('d-none');
   }else {
-    input.classList.replace('is-valid','is-invalid');
-    alert.classList.replace('d-none','d-block');
+    input.classList.remove('is-valid');
+    input.classList.add('is-invalid');
+    alert.classList.remove('d-none');
+    alert.classList.add('d-block');
   }
   // Check disabled Attr for Add Button
   for(var i = 0; i < inputs.length; i++) {
