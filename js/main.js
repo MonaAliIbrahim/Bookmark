@@ -7,6 +7,7 @@ var tableBody = document.getElementById('tableBody'),
     nameInput = document.getElementById('name'),
     urlInput = document.getElementById('url'), 
     addBtn = document.getElementById('addBtn'),
+    resetBtn = document.getElementById('resetBtn'),
     searchInput = document.getElementById('searchInput'),
     updateBtn = document.getElementById('updateBtn'),
     deleteBtn = document.getElementById('deleteBtn'),
@@ -128,11 +129,10 @@ function searchForWebsite() {
   for(var i = 0; i < websiteList.length; i++) {
     if(websiteList[i].name.toLowerCase().includes(searchText.toLowerCase())) {
       rows += `<tr>
-                  <td>${websiteList[i].name}</td>
-                  <td class="text-end">
-                    <button class="btn btn-outline-primary px-4">
-                      <a href="${websiteList[i].url}" target="_blank">Visit</a>  
-                    </button>
+                  <td class="w-25 text-capitalize">${websiteList[i].name}</td>
+                  <td class="w-25">${websiteList[i].url}</td>
+                  <td>
+                    <a href="${websiteList[i].url}" target="_blank" class="btn btn-outline-primary px-4">Visit</a>  
                   </td>
                   <td class="text-end">
                     <button class="btn btn-primary px-4" onclick="getUpdatedWebsite(${i})">Update</button>
@@ -160,6 +160,12 @@ function clearForm() {
   }
 }
 
+// Reset Button Action
+resetBtn.addEventListener('click', function(e) {
+  e.preventDefault();
+  clearForm();
+});
+
 // Delete Operation
 var deleteWebsite = function(index) {
   websiteList.splice(index, 1);
@@ -181,13 +187,13 @@ var getUpdatedWebsite = function(index) {
 
 // Validation
 nameInput.addEventListener('keyup', function() {
-  let rejex = /[^`~!@#$%^&*?+={}()<>;:\'\"]{3,50}/,
+  let regex = /[^`~!@#$%^&*?+={}()<>;:\'\"]{3,50}/,
       alert = document.getElementById('nameAlert');
   checkValidation(nameInput, rejex, alert);
 });
 
 urlInput.addEventListener('keyup', function() {
-  let rejex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/,
+  let regex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/,
       alert = document.getElementById('urlAlert');
   checkValidation(urlInput, rejex, alert)
 });
