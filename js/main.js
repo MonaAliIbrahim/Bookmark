@@ -37,7 +37,7 @@ function displayWebsiteList() {
               </td>
               <td class="text-end">
                 <button class="btn btn-primary px-4" onclick="getUpdatedWebsite(${i})">Update</button>
-                <button class="btn btn-danger px-4" onclick="deleteWebsite(${i})">Delete</button>
+                <button class="btn px-4" onclick="deleteWebsite(${i})">Delete</button>
               </td>
             </tr>`;
   }
@@ -138,7 +138,7 @@ function searchForWebsite() {
                   </td>
                   <td class="text-end">
                     <button class="btn btn-primary px-4" onclick="getUpdatedWebsite(${i})">Update</button>
-                    <button class="btn btn-danger px-4" onclick="deleteWebsite(${i})">Delete</button>
+                    <button class="btn btn px-4" onclick="deleteWebsite(${i})">Delete</button>
                   </td>
                 </tr>`;
     }

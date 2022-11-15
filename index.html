@@ -2,8 +2,15 @@
   <head>
     <title>Bookmark</title>
     <link rel="icon" href="images/favicon_io/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bookmark your favorite sites">
+    <!-- Import Styles -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <!-- Import Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster" rel="stylesheet">
   </head>
   <body>
     <header>
@@ -13,7 +20,7 @@
     </header>
     <main>
       <div class="container">
-        <div class="main-card text-center p-4 m-4">
+        <div class="main-card text-center p-4 my-4 m-4">
           <h3>Bookmark your favorite sites</h3>
           <form id="websiteForm" class="px-5">
             <label for="name">Site Name</label>
@@ -27,7 +34,7 @@
               Valid Site URL should be like : http://example.com
             </Alert>
             <button id="addBtn" class="btn btn-primary mt-3 mx-1 px-3" disabled>Submit</button>
-            <button id="resetBtn" class="btn btn-danger mt-3 mx-1 px-4" type="reset">Reset</button>
+            <button id="resetBtn" class="btn btn-dark mt-3 mx-1 px-4" type="reset">Reset</button>
           </form>
         </div>
         <div class="row mx-4">
@@ -55,6 +62,5 @@
     </div>
     <script scr="js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
-
   </body>
 </html>
